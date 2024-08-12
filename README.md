@@ -10,4 +10,4 @@ Here you will find my notes for each week:
 [Week 3. Applying Functions](https://handy-cheque-8cd.notion.site/Applying-Functions-86790abc650e4265b434caa823531118?pvs=4)     
 [Week 4. Tidying Data](https://handy-cheque-8cd.notion.site/Tidying-Data-f38343842ded48f0ad6c1ff3d678ca84?pvs=4)     
 [Week 5. Visualizing Data](https://handy-cheque-8cd.notion.site/Visualizing-Data-3e9de8469c0245cb8cb79eaeb82abff2#85ffa46a25794e52b4dd0bd8acaceab7)      
-[Week 5. Free Problem Set (made with R Markdown](https://rpubs.com/iryna_ps/1210335)       
+[Week 5. Free Problem Set (made with R Markdown)](https://rpubs.com/iryna_ps/1210335)       
