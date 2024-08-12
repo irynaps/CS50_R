@@ -1,0 +1,91 @@
+---
+title: "Visualization of Grain Prices"
+author: "Iryna Pukas"
+output: "html_document"
+---
+
+# CS50R. Week 5
+
+## Data Visualization
+
+### Loading libraries
+
+```{r}
+library(ggplot2)
+library(tidyr)
+library(plotly)
+library(hrbrthemes)
+```
+
+### Loading data
+
+Here I will load data from a csv file with the information about prices of different grains throughout the years stating with the year 2000.
+
+```{r}
+grains <- read.csv("GrainPrices.csv")
+```
+
+### Exploring data
+
+The number of rows is 5.757
+
+```{r}
+nrow(grains)
+```
+
+Here we can see that we have four types of grains: **wheat**, **milo**, **corn**, and **beans**.
+
+```{r}
+names(grains)
+```
+
+I convert the Date column into the date format and check the earliest and latest date for our data. The range is from **3rd of January 2000** until **14th of December 2022**.
+
+```{r}
+grains$Date <- as.Date(grains$Date, format = "%m/%d/%y")
+min(grains$Date)
+max(grains$Date)
+```
+
+### Visualization of wheat data
+
+Let's first try to visualize the prices for wheat.
+
+```{r}
+wheat <- grains[, 1:2]
+
+wheat |>
+  ggplot(aes(x = Date, y = Wheat)) +
+    geom_area(fill = "#E3E963", alpha = 0.5) +
+    geom_line(color = "#E3E963") +
+    labs (
+      x = "",
+      y = "Wheat Price",
+      title = "The Distribution of Wheat Prices"
+    ) +
+    theme_ipsum()
+```
+
+### Visualization of all grains
+
+Now let's visualize the data for all grain types.
+
+```{r}
+grain_types = names(grains)[-1]
+
+grains_long <- grains |>
+  pivot_longer(cols = all_of(grain_types), names_to = "Grain", values_to = "Price")
+
+grains_long |>
+  ggplot(aes(x = Date, y = Price, color = Grain)) +
+  geom_line(
+    linetype = 1,
+    linewidth = 0.3
+  ) +
+  labs (
+      x = "",
+      y = "Wheat Price",
+      title = "The Distribution of Grains Prices"
+    ) +
+    theme_ipsum()
+```
